@@ -3,7 +3,7 @@ import jenkins.model.CauseOfInterruption.UserInterruption
 
 def call() {
   while(currentBuild.rawBuild.getPreviousBuildInProgress() != null) {
-    echo ">> Aborting older build #${currentBuild.rawBuild.getPreviousBuildInProgress().number}"
+    sh "echo Aborting older build #${currentBuild.rawBuild.getPreviousBuildInProgress().number}"
     def executor = currentBuild.rawBuild.getPreviousBuildInProgress().getExecutor()
     executor.interrupt(Result.ABORTED, new UserInterruption(
                     "Aborted by newer build #${currentBuild.number}"
