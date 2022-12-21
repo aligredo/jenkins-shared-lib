@@ -6,3 +6,7 @@ def killOldBuilds() {
     currentBuild.rawBuild.getPreviousBuildInProgress().doKill()
   }
 }
+
+def call(){
+  killOldBuilds()
+}
