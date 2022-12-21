@@ -1,9 +1,9 @@
 import hudson.model.Result
 import jenkins.model.CauseOfInterruption.UserInterruption
-import hudson.model.Run
+import hudson.model.RunT
 def call() {
   while(currentBuild.rawBuild.getPreviousBuildInProgress() != null) {
-    Run olderBuild = currentBuild.rawBuild.getPreviousBuildInProgress()
+    RunT olderBuild = currentBuild.rawBuild.getPreviousBuildInProgress()
     sh "echo Abortig build #${olderBuild.number}"
     currentBuild.rawBuild.getPreviousBuildInProgress().doStop()
   }
