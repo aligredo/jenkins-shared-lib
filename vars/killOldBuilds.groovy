@@ -10,7 +10,7 @@ def call (){
           def executor = previousBuild.getExecutor()
           if (executor != null) {
               echo ">> Aborting older build #${previousBuild.number}"
-              executor.interrupt(Result.ABORTED, new UserInterruption("Aborted by newer build #${currentBuild.number}"))
+              executor.interrupt(Result.ABORTED, new UserInterruption("System: newer build #${currentBuild.number}"))
           }
       }
       previousBuild = previousBuild.getPreviousBuildInProgress()
