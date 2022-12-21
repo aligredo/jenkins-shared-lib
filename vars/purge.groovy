@@ -4,11 +4,10 @@ import jenkins.model.CauseOfInterruption.UserInterruption
 
 def call() {
     sh "echo ana gaiiiiiiiiii"
-    //Run previousBuild = currentBuild.rawBuild.getPreviousBuildInProgress()
     sh "echo ${currentBuild}"
     sh "echo ${currentBuild.rawBuild}"
     sh "echo ${currentBuild.rawBuild.getPreviousBuildInProgress()}"
-
+    Run previousBuild = currentBuild.rawBuild.getPreviousBuildInProgress()
     sh "echo ana geeeeeeeeeet"
     while (previousBuild != null) {
         if (previousBuild.isInProgress()) {
