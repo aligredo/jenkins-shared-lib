@@ -1,12 +1,8 @@
 import hudson.model.Result
 import jenkins.model.CauseOfInterruption.UserInterruption
 
-def killOldBuilds() {
+def call() {
   while(currentBuild.rawBuild.getPreviousBuildInProgress() != null) {
     currentBuild.rawBuild.getPreviousBuildInProgress().doKill()
   }
-}
-
-def call(){
-  killOldBuilds()
 }
