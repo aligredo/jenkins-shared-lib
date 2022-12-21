@@ -2,7 +2,7 @@ import hudson.model.Result
 import hudson.model.Run
 import jenkins.model.CauseOfInterruption.UserInterruption
 
-def call() {
+def purge() {
     Run previousBuild = currentBuild.rawBuild.getPreviousBuildInProgress()
     sh "echo ana geeeeeeeeeet"
     while (previousBuild != null) {
